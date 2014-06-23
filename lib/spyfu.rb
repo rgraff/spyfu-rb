@@ -1,4 +1,5 @@
 require 'spyfu/client'
+require 'spyfu/request'
 
 module SpyFu
 
