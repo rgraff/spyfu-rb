@@ -1,4 +1,3 @@
-require 'spyfu'
 
 require 'simplecov'
 module SimpleCov::Configuration
@@ -17,6 +16,7 @@ ENV["COVERAGE"] && SimpleCov.start do
 end
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
+require 'spyfu'
 
 require 'rspec'
 
