@@ -7,8 +7,8 @@ require 'spyfu/api/url'
 
 module SpyFu
 
-  def self.client(account_id, account_key)
-    SpyFu::Client.new(account_id, account_key)
+  def self.client(app_id, secret_key)
+    SpyFu::Client.new(app_id, secret_key)
   end
 
 end

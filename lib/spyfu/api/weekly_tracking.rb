@@ -5,23 +5,23 @@ module SpyFu
     end
 
     def add_terms(params)
-      SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/add_terms", params, nil, client.account_id, client.account_key)
+      SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/add_terms", params, nil, client.app_id, client.secret_key)
     end
 
     def get_groups(params)
-      SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/get_groups", params, nil, client.account_id, client.account_key)
+      SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/get_groups", params, nil, client.app_id, client.secret_key)
     end
 
     def get_terms(params)
-      SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/get_terms", params, nil, client.account_id, client.account_key)
+      SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/get_terms", params, nil, client.app_id, client.secret_key)
     end
 
     def get_term_data(params)
-      SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/get_term_data", params, nil, client.account_id, client.account_key)
+      SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/get_term_data", params, nil, client.app_id, client.secret_key)
     end
 
     def delete_terms(params)
-      SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/delete_terms", params, nil, client.account_id, client.account_key)
+      SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/delete_terms", params, nil, client.app_id, client.secret_key)
     end
 
   end

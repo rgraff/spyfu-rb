@@ -1,10 +1,10 @@
 module SpyFu
   class Client
-    attr :account_id, :account_key
+    attr :app_id, :secret_key
 
-    def initialize(account_id, account_key)
-      @account_id = account_id
-      @account_key = account_key
+    def initialize(app_id, secret_key)
+      @app_id = app_id
+      @secret_key = secret_key
     end
 
     def kss_api

@@ -5,19 +5,19 @@ require 'time'
 
 module SpyFu
   class Request
-    attr :http_method, :params, :post_data, :account_id, :account_key, :url
+    attr :http_method, :params, :post_data, :app_id, :secret_key, :url
 
     HTTP_HEADER_AUTHENTICATION = "Authentication"
     HTTP_HEADER_TIMESTAMP = "Timestamp"
     URL_API_BASE = "http://www.spyfu.com/apis/"
 
-    def initialize(http_method, endpoint, params, post_data, account_id, account_key)
+    def initialize(http_method, endpoint, params, post_data, app_id, secret_key)
       @http_method = http_method
       @url = URL_API_BASE+endpoint
       @params = params
       @post_data = post_data
-      @account_id = account_id
-      @account_key = account_key
+      @app_id = app_id
+      @secret_key = secret_key
     end
 
     def request
@@ -25,7 +25,7 @@ module SpyFu
 
         # add authentiation goodness to request object
         req[HTTP_HEADER_TIMESTAMP] = timestamp
-        req[HTTP_HEADER_AUTHENTICATION] = account_id + ":" + signature
+        req[HTTP_HEADER_AUTHENTICATION] = app_id + ":" + signature
 
         request = Net::HTTP.start(uri.hostname, uri.port) {|http|
           http.request(req)
@@ -52,7 +52,7 @@ module SpyFu
 
     def signature
       digest = OpenSSL::Digest::Digest.new('sha256')
-      hmac_digest = OpenSSL::HMAC.digest(digest, account_key, message)
+      hmac_digest = OpenSSL::HMAC.digest(digest, secret_key, message)
       Base64.encode64(hmac_digest).strip()
     end
 

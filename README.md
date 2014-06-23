@@ -3,7 +3,7 @@
 An unofficial gem to access the [SpyFu API](http://www.spyfu.com/o/spyfu-api/about.aspx). It requires [a SpyFu account](http://www.spyfu.com/o/spyfu-api/get-started.aspx).
 
 ```ruby
-spyfu = SpyFu.client(account_id, account_key)
+spyfu = SpyFu.client(app_id, secret_key)
 ```
 ## URL API
 

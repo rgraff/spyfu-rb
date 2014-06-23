@@ -4,10 +4,10 @@ describe SpyFu::Request do
   let(:params) do
     { :q => "spyfu.com/blog", :r => 5, :bldsv => 888 }
   end
-  let(:account_id){ "0462153A-9C82-4C35-8349-AE3AA0F5913B" } # Taken from SpyFu's examples
-  let(:account_key) { "D3YIBQFQXFBFQW2R1WTDVG" } # Taken from SpyFu's examples
+  let(:app_id){ "0462153A-9C82-4C35-8349-AE3AA0F5913B" } # Taken from SpyFu's examples
+  let(:secret_key) { "D3YIBQFQXFBFQW2R1WTDVG" } # Taken from SpyFu's examples
   let(:request) do
-    SpyFu::Request.new('GET', 'url_api/organic_kws', params, {}, account_id, account_key)
+    SpyFu::Request.new('GET', 'url_api/organic_kws', params, {}, app_id, secret_key)
   end
 
   before :each do
