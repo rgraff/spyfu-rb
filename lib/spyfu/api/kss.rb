@@ -17,7 +17,10 @@ module SpyFu
       # Backward compatibility
       def get_term_page_keywords(params)
       	params[:q] = params[:keyword]
-      	params[:r] = params[:maxRows] if !params[:maxRows].empty?
+        if !params[:maxRows].nil?
+          params[:r] = params[:maxRows] 
+          params.delete(:maxRows)
+        end
         related_keywords(params)
       end
 
