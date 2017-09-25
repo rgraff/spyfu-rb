@@ -51,7 +51,7 @@ module SpyFu
     end
 
     def signature
-      digest = OpenSSL::Digest::Digest.new('sha256')
+      digest = OpenSSL::Digest.new('sha256')
       hmac_digest = OpenSSL::HMAC.digest(digest, secret_key, message)
       Base64.encode64(hmac_digest).strip()
     end
