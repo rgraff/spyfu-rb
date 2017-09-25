@@ -6,17 +6,17 @@ module SpyFu
 
       # Get list of contacts for a domain
       def get_contact_card(params)
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/get_contact_card", params, nil, client.app_id, client.secret_key)
+        send_get "get_contact_card", params
       end
 
       # Get list of contact leads
       def get_grid(params)
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/get_grid", params, nil, client.app_id, client.secret_key)
+        send_get "get_grid", params
       end
 
       # Get list of contacts for a domain
       def get_top_list(params)
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/get_top_list", params, nil, client.app_id, client.secret_key)
+        send_get "get_top_list", params
       end
 
     end

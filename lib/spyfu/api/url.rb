@@ -17,7 +17,7 @@ module SpyFu
           params.delete(:bldsv)
         end
 
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/paid_kws", params, nil, client.app_id, client.secret_key)
+        send_get "paid_kws", params
       end
 
       # Get organic data from url
@@ -33,17 +33,17 @@ module SpyFu
           params.delete(:bgmsv)
         end
         
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/organic_kws", params, nil, client.app_id, client.secret_key)
+        send_get "organic_kws", params
       end
 
       # Get paid estimates from url
       def paid_estimates(params)
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/paid_estimates", params, nil, client.app_id, client.secret_key)
+        send_get "paid_estimates", params
       end
 
       # Get organic estimates from url
       def organic_estimates(params)
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/organic_estimates", params, nil, client.app_id, client.secret_key)
+        send_get "organic_estimates", params
       end
 
     end

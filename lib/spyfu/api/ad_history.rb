@@ -6,17 +6,17 @@ module SpyFu
 
       # Get ad history by domain
       def domain_ad_history(params)
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/domain_ad_history", params, nil, client.app_id, client.secret_key)
+        send_get "domain_ad_history", params
       end
 
       # Get ad history by domain with metrics
       def domain_ad_history_with_metrics(params)
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/domain_ad_history_with_metrics", params, nil, client.app_id, client.secret_key)
+        send_get "domain_ad_history_with_metrics", params
       end
 
       # Get ad history by domain by Term
       def term_ad_history(params)
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/term_ad_history", params, nil, client.app_id, client.secret_key)
+        send_get "term_ad_history", params
       end
 
     end

@@ -6,12 +6,12 @@ module SpyFu
 
       # Get list of related keywords
       def related_keywords(params)
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/kss_kws", params, nil, client.app_id, client.secret_key)
+        send_get "kss_kws", params
       end
 
       # Get list of domains related to keyword
       def domain_related_keywords(params)
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/kss_domains", params, nil, client.app_id, client.secret_key)
+        send_get "kss_domains", params
       end
 
       # Backward compatibility
