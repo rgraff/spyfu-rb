@@ -18,5 +18,17 @@ module SpyFu
     def url_api
       SpyFu::Api::Url.new(self)
     end
+
+    def leads_api
+      SpyFu::Api::Leads.new(self)
+    end
+
+    def ad_history_api
+      SpyFu::Api::AdHistory.new(self)
+    end
+
+    def core_api
+      SpyFu::Api::Core.new(self)
+    end
   end
 end
