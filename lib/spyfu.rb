@@ -1,13 +1,13 @@
-require './spyfu/client'
-require './spyfu/request'
-require './spyfu/api/base'
+require 'spyfu/client'
+require 'spyfu/request'
+require 'spyfu/api/base'
 
-require './spyfu/api/ad_history'
-require './spyfu/api/core'
-require './spyfu/api/kss'
-require './spyfu/api/leads'
-require './spyfu/api/url'
-require './spyfu/api/weekly_tracking'
+require 'spyfu/api/ad_history'
+require 'spyfu/api/core'
+require 'spyfu/api/kss'
+require 'spyfu/api/leads'
+require 'spyfu/api/url'
+require 'spyfu/api/weekly_tracking'
 
 module SpyFu
 
