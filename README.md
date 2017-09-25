@@ -1,22 +1,66 @@
 # spyfu-rb
 
-An unofficial gem to access the [SpyFu API](http://www.spyfu.com/o/spyfu-api/about.aspx). It requires [a SpyFu account](http://www.spyfu.com/o/spyfu-api/get-started.aspx).
+An unofficial gem to access the [SpyFu API](https://www.spyfu.com/api). It requires [a SpyFu account](https://www.spyfu.com/api/get-started).
 
 ```ruby
 spyfu = SpyFu.client(app_id, secret_key)
 ```
-## URL API
 
-You can access the [URL API](http://www.spyfu.com/o/spyfu-api/documentation/url-api.aspx).
+## Ad History API
+
+You can access the [Core API](https://www.spyfu.com/api/docs/core).
 
 ```ruby
-spyfu.url_api.organic_kws(:q => "spyfu.com/blog", :r => 5, :blmsv => 888)
-spyfu.url_api.paid_kws(:q => "spyfu.com/blog", :r => 5, :bldsv => 888)
+spyfu.ad_history_api.domain_ad_history(...)
+spyfu.ad_history_api.domain_ad_history_with_metrics(...)
+spyfu.ad_history_api.term_ad_history(...)
+```
+
+## Core API
+
+You can access the [Core API](https://www.spyfu.com/api/docs/core).
+
+```ruby
+spyfu.core_api.get_domain_metrics_us(...)
+spyfu.core_api.get_domain_metrics_uk(...)
+spyfu.core_api.get_domain_budget_history_us(...)
+spyfu.core_api.get_domain_budget_history_uk(...)
+spyfu.core_api.get_domain_competitors_us(...)
+spyfu.core_api.get_domain_competitors_uk(...)
+```
+
+## KSS API
+
+You can access the [Keyword SmartSearch API](https://www.spyfu.com/api/docs/related-keywords).
+
+```ruby
+spyfu.kss_api.get_term_page_keywords(:q => 'spyfu api', :r => 100)
+```
+
+## Leads API
+
+You can access the [Leads API](https://www.spyfu.com/api/docs/leads).
+
+```ruby
+spyfu.leads_api.get_contact_card(...)
+spyfu.leads_api.get_grid(...)
+spyfu.leads_api.get_top_list(...)
+```
+
+## URL API
+
+You can access the [URL API](https://www.spyfu.com/api/docs/url).
+
+```ruby
+spyfu.url_api.organic_kws(:q => "http://resources.spyfu.com/blog/", :r => 100)
+spyfu.url_api.paid_kws(:q => "http://resources.spyfu.com/blog/", :r => 100)
+spyfu.url_api.paid_estimates(...)
+spyfu.url_api.organic_estimates(...)
 ```
 
 ## Weekly Tracking API
 
-You can access the [Weekly Tracking API](http://www.spyfu.com/o/spyfu-api/documentation/tracking-api.aspx).
+You can access the [Weekly Tracking API](https://www.spyfu.com/api/docs/weekly-tracking).
 
 ```ruby
 spyfu.weekly_tracking_api.add_terms(...)
@@ -24,14 +68,6 @@ spyfu.weekly_tracking_api.get_groups(...)
 spyfu.weekly_tracking_api.get_terms(...)
 spyfu.weekly_tracking_api.get_term_data(...)
 spyfu.weekly_tracking_api.delete_terms(...)
-```
-
-## KSS API
-
-You can access the [Keyword SmartSearch API](http://www.spyfu.com/o/spyfu-api/documentation/kss-api.aspx).
-
-```ruby
-spyfu.kss_api.get_term_page_keywords(:keyword => 'spyfu api', :maxRows => 100)
 ```
 
 ## Known Issues
