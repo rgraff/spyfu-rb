@@ -1,10 +1,27 @@
 module SpyFu
   module Api
     class Kss < Base
-      BASE_ENDPOINT = 'kss.api'
+      # More information: https://www.spyfu.com/apis/ad_history_api/domain_ad_history
+      BASE_ENDPOINT = 'kss_api'
 
+      # Get list of related keywords
+      def related_keywords(params)
+        send_get "kss_kws", params
+      end
+
+      # Get list of domains related to keyword
+      def domain_related_keywords(params)
+        send_get "kss_domains", params
+      end
+
+      # Backward compatibility
       def get_term_page_keywords(params)
-        SpyFu::Request.new('GET', "#{BASE_ENDPOINT}/get_term_page_keywords", params, nil, client.app_id, client.secret_key)
+      	params[:q] = params[:keyword]
+        if !params[:maxRows].nil?
+          params[:r] = params[:maxRows] 
+          params.delete(:maxRows)
+        end
+        related_keywords(params)
       end
 
     end

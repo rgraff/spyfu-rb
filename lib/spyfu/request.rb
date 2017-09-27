@@ -9,7 +9,7 @@ module SpyFu
 
     HTTP_HEADER_AUTHENTICATION = "Authentication"
     HTTP_HEADER_TIMESTAMP = "Timestamp"
-    URL_API_BASE = "http://www.spyfu.com/apis/"
+    URL_API_BASE = "https://www.spyfu.com/apis/"
 
     def initialize(http_method, endpoint, params, post_data, app_id, secret_key)
       @http_method = http_method
@@ -27,7 +27,7 @@ module SpyFu
         req[HTTP_HEADER_TIMESTAMP] = timestamp
         req[HTTP_HEADER_AUTHENTICATION] = app_id + ":" + signature
 
-        request = Net::HTTP.start(uri.hostname, uri.port) {|http|
+        request = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => true) {|http|
           http.request(req)
         }
         return request
@@ -51,7 +51,7 @@ module SpyFu
     end
 
     def signature
-      digest = OpenSSL::Digest::Digest.new('sha256')
+      digest = OpenSSL::Digest.new('sha256')
       hmac_digest = OpenSSL::HMAC.digest(digest, secret_key, message)
       Base64.encode64(hmac_digest).strip()
     end
